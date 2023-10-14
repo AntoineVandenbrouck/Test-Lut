@@ -1,6 +1,7 @@
 const canvas = document.getElementById('image-canvas');
 const ctx = canvas.getContext('2d');
 let currentImage = null; // Pour stocker l'image actuellement affichée
+const { ipcRenderer } = require('electron');
 
 document.getElementById('image-input').addEventListener('change', function(event) {
   const file = event.target.files[0];
@@ -66,13 +67,11 @@ document.getElementById('separator').addEventListener('mousedown', function(even
 	document.removeEventListener('mouseup', stopResizing);
   }
 
-  const { ipcRenderer } = require('electron');
-
-document.getElementById('select-directory').addEventListener('click', function() {
+  document.getElementById('select-directory').addEventListener('click', function() {
     ipcRenderer.send('open-directory-dialog');
 });
 
 ipcRenderer.on('selected-directory', (event, path) => {
-    console.log(`Dossier sélectionné: ${path}`);
+    console.log(`Selected directory: ${path}`);
     // Ici, vous pouvez traiter le chemin du dossier sélectionné
 });
