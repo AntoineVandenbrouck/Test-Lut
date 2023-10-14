@@ -35,11 +35,10 @@ ipcMain.on('open-directory-dialog', (event) => {
     dialog.showOpenDialog(mainWindow, {
         properties: ['openDirectory']
     }).then(result => {
-        if (!result.canceled) {
-            event.sender.send('selected-directory', result.filePaths);
+        if (!result.canceled && result.filePaths.length > 0) {
+            event.sender.send('selected-directory', result.filePaths[0]);
         }
     }).catch(err => {
         console.log(err);
     });
 });
-
