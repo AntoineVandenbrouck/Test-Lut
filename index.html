@@ -37,7 +37,21 @@
     background-color: #aaa;
     width: 5px;
     height: 100%;
+    }
+   #lut-list li {
+    margin: 5px 0;
+    cursor: pointer;
+   }
+
+   #lut-list ul {
+    list-style-type: none;
+    padding-left: 20px;
+   }
+
+  #image-canvas-original {
+  display: none;
   }
+  
 </style>
 </head>
 <body>
@@ -45,11 +59,12 @@
   <div id="container">
     <div id="image-container">
       <input type="file" id="image-input" accept="image/*">
-      <canvas id="image-canvas"></canvas>
+      <canvas id="image-canvas-original"></canvas>
+      <canvas id="image-canvas-webgl"></canvas>
     </div>
     <div id="separator"></div>
     <div id="lut-container">
-      <button id="choose-folder">Choisir un dossier</button>
+      <button id="select-directory">Choisir un dossier</button>
       <ul id="lut-list"></ul>
     </div>
   </div>
