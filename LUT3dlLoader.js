@@ -2,7 +2,7 @@ const THREE = require('three');
 const Loader = THREE.Loader;
 const FileLoader = THREE.FileLoader;
 const DataTexture = THREE.DataTexture;
-const DataTexture3D = THREE.DataTexture3D;
+const DataTexture3D = THREE.Data3DTexture;
 const RGBFormat = THREE.RGBFormat;
 const UnsignedByteType = THREE.UnsignedByteType;
 const ClampToEdgeWrapping = THREE.ClampToEdgeWrapping;
@@ -116,7 +116,7 @@ class LUT3dlLoader extends Loader {
 		texture.wrapT = ClampToEdgeWrapping;
 		texture.generateMipmaps = false;
 
-		const texture3D = new DataTexture3D();
+		const texture3D = new THREE.Data3DTexture();
 		texture3D.image.data = data;
 		texture3D.image.width = size;
 		texture3D.image.height = size;

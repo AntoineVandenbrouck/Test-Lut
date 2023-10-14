@@ -1,4 +1,4 @@
-const lutShaderFunctions = require('./LUTShaderFunctions.js');
+const { lutShaderFunctions } = require('./LUTShaderFunctions.js');
 
 const LUTShader = {
 
@@ -16,7 +16,8 @@ const LUTShader = {
 		intensity: { value: 1.0 },
 	},
 
-	vertexShader: /* glsl */`
+	fragmentShader: /* glsl */`
+        ${lutShaderFunctions}
 
 		varying vec2 vUv;
 

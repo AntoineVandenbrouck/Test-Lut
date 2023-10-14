@@ -3,7 +3,7 @@ const Loader = THREE.Loader;
 const FileLoader = THREE.FileLoader;
 const Vector3 = THREE.Vector3;
 const DataTexture = THREE.DataTexture;
-const DataTexture3D = THREE.DataTexture3D;
+const Data3DTexture = THREE.Data3DTexture;
 const RGBFormat = THREE.RGBFormat;
 const UnsignedByteType = THREE.UnsignedByteType;
 const ClampToEdgeWrapping = THREE.ClampToEdgeWrapping;
@@ -122,7 +122,7 @@ class LUTCubeLoader extends Loader {
 		texture.wrapT = ClampToEdgeWrapping;
 		texture.generateMipmaps = false;
 
-		const texture3D = new DataTexture3D();
+		const texture3D = new Data3DTexture();
 		texture3D.image.data = data;
 		texture3D.image.width = size;
 		texture3D.image.height = size;
