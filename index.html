@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Lut Explorer</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     #container {
       display: flex;
@@ -32,7 +31,14 @@
       margin: 10px 0;
       cursor: pointer;
     }
-  </style>
+
+    #separator {
+    cursor: ew-resize; /* Curseur pour le redimensionnement horizontal */
+    background-color: #aaa;
+    width: 5px;
+    height: 100%;
+  }
+</style>
 </head>
 <body>
   <h1>Welcome to Lut Explorer!</h1>
@@ -41,9 +47,12 @@
       <input type="file" id="image-input" accept="image/*">
       <canvas id="image-canvas"></canvas>
     </div>
+    <div id="separator"></div>
     <div id="lut-container">
+      <button id="choose-folder">Choisir un dossier</button>
       <ul id="lut-list"></ul>
     </div>
   </div>
+  <script src="renderer.js"></script>
 </body>
 </html>
